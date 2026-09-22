@@ -59,6 +59,5 @@ class Program
         {
             Console.WriteLine("Unfortunately, you didn't pass this time, but you got this! Just study a little more next time!");
         }
-
     }
 }
