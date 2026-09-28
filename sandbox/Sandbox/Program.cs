@@ -4,11 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!!!!");
+        static double tenth(double number)
+        {
+            return number * 0.1;
+        }
 
-        List<string> items = new List<string>();
-        items.Add("Value");
-
-        int size = items.Count;
+        double tithe = tenth(90);
+        Console.WriteLine(tithe);
     }
 }
