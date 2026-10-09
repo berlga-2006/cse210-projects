@@ -22,7 +22,7 @@ public class Journal
         newEntry._prompt = prompts[random.Next(0, prompts.Count())];
         Console.WriteLine(newEntry._prompt);
         Console.Write("> ");
-        newEntry._response = Console.ReadLine();
+        newEntry._response = Console.ReadLine().Replace("|", "");
         _entries.Add(newEntry);
     }
 

@@ -3,7 +3,6 @@ using System.IO;
 public class Menu
 {
     Journal _journal = new Journal();
-    const string fileName = "journal.csv";
     public void DisplayMenu()
     {
         bool inMenu = true;
@@ -23,6 +22,7 @@ public class Menu
                 _journal.DisplayEntries();
             } else if (userInput == "3")
             {
+                string fileName = GetJournalName();
                 string[] lines = System.IO.File.ReadAllLines(fileName);
                 const int dateIndex = 0;
                 const int promptIndex = 1;
@@ -34,11 +34,12 @@ public class Menu
                     Entry newEntry = new Entry();
                     newEntry._date = parts[dateIndex];
                     newEntry._prompt = parts[promptIndex];
-                    newEntry._response = parts[responseIndex];
+                    newEntry._response = parts[responseIndex].Replace("|", "");
                     _journal._entries.Add(newEntry);
                 }
             } else if (userInput == "4")
             {
+                string fileName = GetJournalName();
                 // The format for each entry in the csv file will be Date|Prompt|Response
                 using (StreamWriter outputFile = new StreamWriter(fileName))
                 {
@@ -55,5 +56,13 @@ public class Menu
                 Console.WriteLine("Invalid Input!");
             }
         }
+    }
+
+    string GetJournalName()
+    {
+        Console.WriteLine("What is the filename? (Exculde the file extension)");
+        string name = Console.ReadLine();
+        name = name + ".csv";
+        return name;
     }
 }
