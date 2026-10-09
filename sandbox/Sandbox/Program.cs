@@ -1,15 +1,21 @@
 using System;
+using System.Runtime.InteropServices;
 
 class Program
 {
     static void Main(string[] args)
     {
-        static double tenth(double number)
+        static void Modify(List<int> numList)
         {
-            return number * 0.1;
+            numList.Add(1);
         }
 
-        double tithe = tenth(90);
-        Console.WriteLine(tithe);
+        List<int> nums = new List<int>(){3, 2};
+        Modify(nums);
+
+        foreach (int num in nums)
+        {
+            Console.WriteLine(num);
+        }
     }
 }
