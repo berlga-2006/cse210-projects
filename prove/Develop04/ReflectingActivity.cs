@@ -6,7 +6,7 @@ public class ReflectingActivity : Activity
     private List<int> _usedQuestionIndex = new List<int>();
     Random _random = new Random();
 
-    const int QuestionLength = 1;
+    const int QuestionLength = 8;
 
     public ReflectingActivity(string name, string description, List<string> prompts, List<string> questions) : base(name, description)
     {
